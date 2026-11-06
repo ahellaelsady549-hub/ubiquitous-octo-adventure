@@ -1,0 +1,346 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-gold: var(--gold);
+  --color-gold-soft: var(--gold-soft);
+  --color-mushaf-paper: var(--mushaf-paper);
+  --color-mushaf-ink: var(--mushaf-ink);
+  --color-mushaf-accent: var(--mushaf-accent);
+  --color-mushaf-highlight: var(--mushaf-highlight);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --font-display: "Amiri", serif;
+  --font-body: "Cairo", sans-serif;
+  --font-quran: "Amiri Quran", "Amiri", serif;
+}
+
+:root {
+  --radius: 1rem;
+  --background: oklch(0.995 0.004 95);
+  --foreground: oklch(0.22 0.03 160);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.22 0.03 160);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.22 0.03 160);
+  --primary: oklch(0.45 0.09 165);
+  --primary-foreground: oklch(0.99 0.005 95);
+  --secondary: oklch(0.96 0.012 150);
+  --secondary-foreground: oklch(0.3 0.05 165);
+  --muted: oklch(0.96 0.008 120);
+  --muted-foreground: oklch(0.52 0.02 160);
+  --accent: oklch(0.94 0.035 90);
+  --accent-foreground: oklch(0.32 0.06 80);
+  --gold: oklch(0.68 0.12 82);
+  --gold-soft: oklch(0.9 0.06 88);
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.99 0 0);
+  --border: oklch(0.9 0.012 140);
+  --input: oklch(0.9 0.012 140);
+  --ring: oklch(0.68 0.12 82);
+  /* ألوان المصحف ثابتة في الوضعين الفاتح والداكن — ورق كريمي وحبر بني كما في المصحف المطبوع */
+  --mushaf-paper: oklch(0.955 0.028 85);
+  --mushaf-ink: oklch(0.27 0.035 55);
+  --mushaf-accent: oklch(0.45 0.08 195);
+  --mushaf-highlight: oklch(0.86 0.075 88);
+
+  --gradient-hero: linear-gradient(
+    135deg,
+    oklch(0.45 0.09 165) 0%,
+    oklch(0.35 0.07 170) 55%,
+    oklch(0.42 0.08 120) 100%
+  );
+  --gradient-gold: linear-gradient(120deg, oklch(0.78 0.11 88), oklch(0.62 0.13 74));
+  --shadow-soft: 0 10px 40px -18px oklch(0.3 0.05 160 / 0.35);
+  --shadow-glow: 0 0 40px -8px oklch(0.68 0.12 82 / 0.35);
+}
+
+.dark {
+  --background: oklch(0.16 0.018 165);
+  --foreground: oklch(0.95 0.012 95);
+  --card: oklch(0.21 0.022 168);
+  --card-foreground: oklch(0.95 0.012 95);
+  --popover: oklch(0.21 0.022 168);
+  --popover-foreground: oklch(0.95 0.012 95);
+  --primary: oklch(0.78 0.11 86);
+  --primary-foreground: oklch(0.17 0.02 165);
+  --secondary: oklch(0.26 0.026 168);
+  --secondary-foreground: oklch(0.94 0.012 95);
+  --muted: oklch(0.25 0.02 168);
+  --muted-foreground: oklch(0.72 0.02 110);
+  --accent: oklch(0.3 0.035 120);
+  --accent-foreground: oklch(0.93 0.03 90);
+  --gold: oklch(0.8 0.115 86);
+  --gold-soft: oklch(0.62 0.09 84);
+  --destructive: oklch(0.68 0.19 22);
+  --destructive-foreground: oklch(0.98 0 0);
+  --border: oklch(0.32 0.025 165);
+  --input: oklch(0.32 0.025 165);
+  --ring: oklch(0.8 0.115 86);
+
+  --gradient-hero: linear-gradient(
+    135deg,
+    oklch(0.24 0.03 168) 0%,
+    oklch(0.18 0.02 165) 55%,
+    oklch(0.26 0.04 120) 100%
+  );
+  --gradient-gold: linear-gradient(120deg, oklch(0.86 0.1 90), oklch(0.68 0.12 78));
+  --shadow-soft: 0 14px 50px -20px oklch(0 0 0 / 0.7);
+  --shadow-glow: 0 0 50px -10px oklch(0.8 0.115 86 / 0.28);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-body);
+    transition:
+      background-color 0.5s ease,
+      color 0.5s ease;
+  }
+
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-display);
+  }
+}
+
+@utility surface {
+  background-color: var(--color-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-soft);
+}
+
+@utility hero-gradient {
+  background-image: var(--gradient-hero);
+}
+
+@utility gold-gradient-text {
+  background-image: var(--gradient-gold);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@utility glow {
+  box-shadow: var(--shadow-glow);
+}
+
+@utility pattern-bg {
+  background-image: radial-gradient(
+    circle at 1px 1px,
+    color-mix(in oklab, var(--color-gold) 22%, transparent) 1px,
+    transparent 0
+  );
+  background-size: 22px 22px;
+}
+
+@utility quran-text {
+  font-family: var(--font-quran);
+  line-height: 2.4;
+  font-size: 1.6rem;
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes menu-item-in {
+  from {
+    opacity: 0;
+    transform: translateX(28px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes pulse-ring {
+  0% {
+    box-shadow: 0 0 0 0 color-mix(in oklab, var(--color-gold) 45%, transparent);
+  }
+  70% {
+    box-shadow: 0 0 0 22px transparent;
+  }
+  100% {
+    box-shadow: 0 0 0 0 transparent;
+  }
+}
+
+@utility animate-fade-up {
+  animation: fade-up 0.6s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@utility animate-menu-item {
+  animation: menu-item-in 0.45s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@utility animate-pulse-ring {
+  animation: pulse-ring 2s infinite;
+}
+
+/* تقليب صفحات المصحف: الصفحة التالية تُقلب من اليسار كما في المصحف */
+@keyframes page-next {
+  from { transform: rotateY(-75deg); opacity: 0.2; box-shadow: 30px 0 40px -20px oklch(0 0 0 / 0.5); }
+  to { transform: rotateY(0); opacity: 1; }
+}
+@keyframes page-prev {
+  from { transform: rotateY(75deg); opacity: 0.2; box-shadow: -30px 0 40px -20px oklch(0 0 0 / 0.5); }
+  to { transform: rotateY(0); opacity: 1; }
+}
+@utility animate-page-next {
+  transform-origin: right center;
+  animation: page-next 0.6s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+@utility animate-page-prev {
+  transform-origin: left center;
+  animation: page-prev 0.6s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.markdown-answer p {
+  margin-bottom: 0.75rem;
+}
+.markdown-answer strong {
+  color: var(--gold);
+  font-weight: 700;
+}
+.markdown-answer ul,
+.markdown-answer ol {
+  margin: 0.5rem 1.25rem 0.75rem 0;
+  list-style: disc;
+}
+.markdown-answer ol {
+  list-style: decimal;
+}
+.markdown-answer li {
+  margin-bottom: 0.35rem;
+}
+.markdown-answer h1,
+.markdown-answer h2,
+.markdown-answer h3 {
+  color: var(--gold);
+  font-weight: 700;
+  margin: 0.75rem 0 0.35rem;
+}
+.markdown-answer hr {
+  border-color: var(--border);
+  margin: 1rem 0;
+}
+.markdown-answer blockquote {
+  border-right: 2px solid var(--gold);
+  padding-right: 0.75rem;
+  color: var(--muted-foreground);
+}
+
+/* ------------- صفحة المصحف ------------- */
+@utility mushaf-paper {
+  background-color: var(--mushaf-paper);
+  box-shadow: var(--shadow-soft), inset 0 0 60px color-mix(in oklab, var(--mushaf-accent) 8%, transparent);
+  border: 1px solid color-mix(in oklab, var(--mushaf-accent) 35%, transparent);
+}
+.mushaf-texture {
+  opacity: 0.38;
+  mix-blend-mode: multiply;
+}
+.mushaf-script {
+  font-family: var(--font-quran);
+  font-weight: 400;
+  font-synthesis: none;
+  font-variant-ligatures: common-ligatures contextual;
+  text-rendering: optimizeLegibility;
+  line-height: 2.5;
+  letter-spacing: 0;
+  word-spacing: normal;
+  overflow-wrap: normal;
+  text-shadow: 0 0.5px 0 color-mix(in oklab, var(--mushaf-ink) 12%, transparent);
+}
+@media (prefers-reduced-motion: reduce) {
+  .animate-page-next, .animate-page-prev {
+    animation: none;
+  }
+}
+@utility mushaf-frame {
+  border: 3px double color-mix(in oklab, var(--mushaf-accent) 55%, transparent);
+  border-radius: 4px;
+  outline: 1px solid color-mix(in oklab, var(--mushaf-accent) 25%, transparent);
+  outline-offset: 3px;
+}
+@utility surah-banner {
+  color: var(--mushaf-accent);
+  border: 2px solid color-mix(in oklab, var(--mushaf-accent) 60%, transparent);
+  border-radius: 6px;
+  background-image:
+    radial-gradient(circle at 0 50%, color-mix(in oklab, var(--mushaf-accent) 25%, transparent) 6px, transparent 7px),
+    radial-gradient(circle at 100% 50%, color-mix(in oklab, var(--mushaf-accent) 25%, transparent) 6px, transparent 7px),
+    linear-gradient(90deg, color-mix(in oklab, var(--mushaf-accent) 10%, transparent), color-mix(in oklab, var(--mushaf-accent) 18%, transparent), color-mix(in oklab, var(--mushaf-accent) 10%, transparent));
+}
+@utility ayah-mark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 1.6em;
+  height: 1.6em;
+  font-size: 0.55em;
+  color: var(--mushaf-accent);
+  border: 1.5px solid var(--mushaf-accent);
+  border-radius: 9999px;
+  vertical-align: middle;
+  font-family: var(--font-body);
+}
+
+/* خلفية وضع القراءة الموسّع: إضاءة هادئة حول المصحف كما في التطبيقات المشهورة، ثابتة مع المود */
+@utility mushaf-ambient {
+  background:
+    radial-gradient(120% 90% at 50% 0%, oklch(0.3 0.03 65) 0%, oklch(0.18 0.02 60) 55%, oklch(0.13 0.015 60) 100%);
+}
+
+/* الشريط العلوي في وضع القراءة الموسّع: لون حبر ثابت لا يتأثر بالمود */
+@utility mushaf-topbar {
+  background-color: oklch(0.19 0.02 60);
+  color: oklch(0.9 0.08 88);
+  border-color: oklch(0.45 0.09 85 / 0.4);
+}

@@ -1,0 +1,1 @@
+DROP POLICY IF EXISTS "community media readable" ON storage.objects;
